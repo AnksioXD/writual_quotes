@@ -9,15 +9,17 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/AnksioXD/writual_quotes"><img src="https://img.shields.io/github/stars/your-username/writual-quotes?style=social" alt="GitHub stars"></a>
-  <a href="https://github.com/AnksioXD/writual_quotes"><img src="https://img.shields.io/github/forks/your-username/writual-quotes?style=social" alt="GitHub forks"></a>
-  <a href="https://github.com/AnksioXD/writual_quotes/blob/main/LICENSE"><img src="https://img.shields.io/github/license/your-username/writual-quotes?color=blue" alt="License"></a>
+  <img alt="GitHub Repo stars" src="https://img.shields.io/github/stars/AnksioXD/writual_quotes">
+  <img alt="GitHub forks" src="https://img.shields.io/github/forks/AnksioXD/writual_quotes">
+  <img alt="GitHub License" src="https://img.shields.io/github/license/AnksioXD/writual_quotes">
   <a href="https://v2.tauri.app/"><img src="https://img.shields.io/badge/Built%20with-Tauri-FFC131?logo=tauri&logoColor=black" alt="Built with Tauri"></a>
 </p>
 
 ---
+<p align="center">
+  <img src="src/assets/writual_window.png" alt="Writual Quotes Window" width="350" />
+</p>
 
-![App Screenshot](src/assets/writual_window.png)
 
 Writual Quotes is a beautiful desktop widget that displays inspirational quotes. Built with React, Tailwind CSS, and Tauri, it runs natively on your desktop with a minimal, elegant interface.
 
