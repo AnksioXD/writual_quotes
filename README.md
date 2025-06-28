@@ -9,7 +9,7 @@
 </p>
 
 <p align="center">
-  <a href=https://github.com/AnksioXD/writual_quotes"><img src="https://img.shields.io/github/stars/your-username/writual-quotes?style=social" alt="GitHub stars"></a>
+  <a href="https://github.com/AnksioXD/writual_quotes"><img src="https://img.shields.io/github/stars/your-username/writual-quotes?style=social" alt="GitHub stars"></a>
   <a href="https://github.com/AnksioXD/writual_quotes"><img src="https://img.shields.io/github/forks/your-username/writual-quotes?style=social" alt="GitHub forks"></a>
   <a href="https://github.com/AnksioXD/writual_quotes/blob/main/LICENSE"><img src="https://img.shields.io/github/license/your-username/writual-quotes?color=blue" alt="License"></a>
   <a href="https://v2.tauri.app/"><img src="https://img.shields.io/badge/Built%20with-Tauri-FFC131?logo=tauri&logoColor=black" alt="Built with Tauri"></a>
