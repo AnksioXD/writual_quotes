@@ -42,7 +42,7 @@ fn main() {
     unsafe {
         use winapi::um::shellscalingapi::SetProcessDpiAwareness;
 
-        SetProcessDpiAwareness(2); // Must be called before any window is created
+        SetProcessDpiAwareness(2);
     }
     Builder::default()
         .plugin(clipboard_plugin())

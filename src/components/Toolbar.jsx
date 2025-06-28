@@ -1,13 +1,15 @@
 import React from "react";
-import { Clipboard, FolderHeart, Lock, Heart, RotateCcw, LockOpen } from "lucide-react";
+import { Clipboard, FolderHeart, Lock, Heart, LockOpen } from "lucide-react";
 import Tooltip from "./Tooltip";
+import { Sparkles } from "lucide-react";
+import { Volume2, VolumeX } from "lucide-react";
 
-function Toolbar({ onRefresh, onCopy, onSaveQuote, copyIconColor, saveIconColor, locked, toggleLock, handleSavedQuotes }) {
+function Toolbar({ onRefresh, onCopy, onSaveQuote, copyIconColor, saveIconColor, locked, toggleLock, handleSavedQuotes, ttsEnabled, toggleTTS }) {
     return (
         <footer className="flex justify-around text-[#90806F] w-full py-6">
-            <Tooltip text="Refresh Quote" position="right">
+            <Tooltip text="Get Inspired" position="right">
                 <button onClick={onRefresh} className="cursor-pointer hover:text-[#cfd785]">
-                    <RotateCcw />
+                    <Sparkles />
                 </button>
             </Tooltip>
             <Tooltip text="Copy Quote">
@@ -23,6 +25,11 @@ function Toolbar({ onRefresh, onCopy, onSaveQuote, copyIconColor, saveIconColor,
             <Tooltip text="View Saved Quotes">
                 <button className="cursor-pointer hover:text-[#acd2f9]" onClick={handleSavedQuotes}>
                     <FolderHeart />
+                </button>
+            </Tooltip>
+            <Tooltip text={ttsEnabled ? "Disable Voice" : "Enable Voice"} position="left">
+                <button onClick={toggleTTS} className="cursor-pointer hover:text-[#a68bff]">
+                    {ttsEnabled ? <Volume2 /> : <VolumeX />}
                 </button>
             </Tooltip>
             <Tooltip text={locked ? "Unlock Widget" : "Lock Widget"} position="left">

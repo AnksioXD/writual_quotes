@@ -10,6 +10,8 @@ function App() {
     const [quote, setQuote] = useState('');
     const [author, setAuthor] = useState('');
     const [loading, setLoading] = useState(true);
+    const [ttsEnabled, setTTSEnabled] = useState(false);
+    const toggleTTS = () => setTTSEnabled(prev => !prev);
 
     const [copyIconColor, setCopyIconColor] = useState("");
     const [saveIconColor, setSaveIconColor] = useState("");
@@ -31,8 +33,14 @@ function App() {
 
         try {
             const result = await invoke('fetch_quote');
+            const fullQuote = `"${result.text}" — ${result.author.name}`;
+
             setQuote(result.text);
             setAuthor(result.author.name);
+
+            if (ttsEnabled) {
+                await playTTS(fullQuote);
+            }
         } catch (error) {
             console.error('Error fetching quote:', error);
             setQuote('Failed to load quote.');
@@ -80,16 +88,48 @@ function App() {
 
         }
     }
+
     function handleSavedQuotes() {
         const notify = () => toast('In Development.');
         notify();
+    }
+
+    async function playTTS(text, voice = "en-US-BrianNeural") {
+        try {
+            const socket = new WebSocket("ws://localhost:4000");
+
+            socket.binaryType = "arraybuffer";
+            let audioChunks = [];
+
+            socket.onopen = () => {
+                socket.send(JSON.stringify({ text, voice }));
+            };
+
+            socket.onmessage = (event) => {
+                if (event.data === "<<END>>") {
+                    const blob = new Blob(audioChunks, { type: "audio/wav" });
+                    const url = URL.createObjectURL(blob);
+                    const audio = new Audio(url);
+                    audio.play();
+                    audio.onended = () => URL.revokeObjectURL(url);
+                    socket.close();
+                    return;
+                }
+                audioChunks.push(event.data);
+            };
+
+            socket.onerror = (err) => console.error("WebSocket error", err);
+        } catch (e) {
+            console.error("Failed to play TTS:", e);
+        }
     }
 
     return (
         <div className="text-xl overflow-hidden font-eb-garamond flex flex-col justify-center items-center px-6 select-none border border-[#655A4E] border-b-2 rounded-[0.5rem] h-screen background-image">
             <TitleBar locked={locked} />
             <QuoteCard quote={quote} author={author} loading={loading} />
-            <Toolbar onRefresh={fetchQuote}
+            <Toolbar
+                onRefresh={fetchQuote}
                 onCopy={copyQuote}
                 onSaveQuote={saveQuote}
                 copyIconColor={copyIconColor}
@@ -97,7 +137,10 @@ function App() {
                 locked={locked}
                 toggleLock={toggleLock}
                 handleSavedQuotes={handleSavedQuotes}
+                ttsEnabled={ttsEnabled}
+                toggleTTS={toggleTTS}
             />
+
             <Toaster position='top-center' toastOptions={{
                 duration: 1000,
                 className: '',
