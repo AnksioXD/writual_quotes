@@ -1,0 +1,30 @@
+{
+    "name": "writual",
+    "private": true,
+    "version": "0.1.0",
+    "type": "module",
+    "scripts": {
+        "dev": "vite",
+        "build": "vite build",
+        "preview": "vite preview",
+        "tauri": "tauri"
+    },
+    "dependencies": {
+        "@tailwindcss/vite": "^4.1.10",
+        "@tauri-apps/api": "^2",
+        "@tauri-apps/plugin-clipboard-manager": "~2.3.0",
+        "@tauri-apps/plugin-opener": "^2",
+        "lucide-react": "^0.523.0",
+        "react": "^18.3.1",
+        "react-dom": "^18.3.1",
+        "react-hot-toast": "^2.5.2",
+        "react-textfit": "^1.1.1",
+        "tailwindcss": "^4.1.10",
+        "tauri-plugin-positioner-api": "^0.2.7"
+    },
+    "devDependencies": {
+        "@tauri-apps/cli": "^2",
+        "@vitejs/plugin-react": "^4.3.4",
+        "vite": "^6.0.3"
+    }
+}

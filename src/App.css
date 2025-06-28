@@ -1,0 +1,90 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+SC:wght@300;400;500;600;700&family=Cormorant:ital,wght@0,300..700;1,300..700&family=EB+Garamond:ital,wght@0,400..800;1,400..800&display=swap');
+@import "tailwindcss";
+
+@theme {
+    --font-cormorant: "Cormorant", serif;
+    --font-cormorant-sc: "Cormorant SC", serif;
+    --font-eb-garamond: "EB Garamond", serif;
+}
+
+:root {
+    font-family: var(--font-cormorant);
+    font-size: 16px;
+    line-height: 24px;
+    font-weight: 400;
+    color: #CCBDA2;
+}
+
+html,
+body {
+    -ms-overflow-style: none;
+    background-color: rgb(8, 8, 7, 1);
+    -webkit-font-smoothing: auto;
+    text-rendering: optimizeSpeed;
+}
+
+.background-image {
+    position: relative;
+    z-index: 10;
+}
+
+.background-image::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: .1;
+    z-index: -1;
+    background-image: url("");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    filter: blur(3px) saturate(0);
+}
+
+html::-webkit-scrollbar {
+    display: none;
+}
+
+.gradient-animation {
+    background-image: linear-gradient(45deg, #CCBDA2, #FFDAB9, #FFB347, #FF8C00);
+    background-size: 300% 300%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+
+    display: inline-block;
+    will-change: transform, background-position, opacity;
+
+    animation:
+        fadeIn 2s ease forwards,
+        gradientSway 6s ease-in-out infinite;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes gradientSway {
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+}
