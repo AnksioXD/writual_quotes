@@ -1,4 +1,3 @@
-// Tooltip.js
 import React from "react";
 
 const Tooltip = ({ text, position = "top", children }) => {
@@ -7,6 +6,8 @@ const Tooltip = ({ text, position = "top", children }) => {
 
     if (position === "top") {
         tooltipPosition = "absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2";
+    } else if (position === "bottom" || position === "down") {
+        tooltipPosition = "absolute top-full left-1/2 transform -translate-x-1/2 mt-2";
     } else if (position === "right") {
         tooltipPosition = "absolute left-full top-1/2 transform -translate-y-1/2 ml-2";
     } else if (position === "left") {

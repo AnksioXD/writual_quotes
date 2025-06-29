@@ -27,11 +27,11 @@ function Toolbar({ onRefresh, onCopy, onSaveQuote, copyIconColor, saveIconColor,
                     <FolderHeart />
                 </button>
             </Tooltip>
-            <Tooltip text={ttsEnabled ? "Disable Voice" : "Enable Voice"} position="left">
+            {/* <Tooltip text={ttsEnabled ? "Disable Voice" : "Enable Voice"} position="left">
                 <button onClick={toggleTTS} className="cursor-pointer hover:text-[#a68bff]">
                     {ttsEnabled ? <Volume2 /> : <VolumeX />}
                 </button>
-            </Tooltip>
+            </Tooltip> */}
             <Tooltip text={locked ? "Unlock Widget" : "Lock Widget"} position="left">
                 <button onClick={toggleLock} className="cursor-pointer hover:text-[#ff6868]">
                     {locked ? <Lock color="#ff6868" /> : <LockOpen />}
