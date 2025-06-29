@@ -44,9 +44,7 @@ async fn fetch_quote() -> Result<Quote, String> {
 fn main() {
     #[cfg(target_os = "windows")]
     unsafe {
-        use winapi::um::shellscalingapi::SetProcessDpiAwareness;
-
-        SetProcessDpiAwareness(2);
+        winapi::um::shellscalingapi::SetProcessDpiAwareness(2);
     }
     Builder::default()
         .plugin(clipboard_plugin())
