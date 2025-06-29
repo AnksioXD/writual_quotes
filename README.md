@@ -29,13 +29,16 @@ Writual Quotes is a beautiful desktop widget that displays inspirational quotes.
 - Save/unsave quotes (UI only, persistence in development)
 - Lock/unlock widget
 - Modern, minimal UI
+- Acrylic window support [Soon]
 
 ## 📋 TODOs
 - [x] Refresh feature
 - [x] Clipboard feature
 - [x] Lock feature
-- [ ] Remove taskbar icon & move to system tray
-- [ ] Create settings menu
+- [x] Remove taskbar icon & move to system tray
+- [ ] Save quotes / View quotes
+- [ ] Run on startup
+- [ ] Create settings tab
 - [ ] Custom theme support
 
 ## 🚀 Getting Started
