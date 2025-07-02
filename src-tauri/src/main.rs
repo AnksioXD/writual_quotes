@@ -7,7 +7,7 @@ use tauri::{
 };
 use tauri::{Builder, Manager};
 use tauri_plugin_clipboard_manager::init as clipboard_plugin;
-use window_vibrancy::apply_acrylic;
+// use window_vibrancy::apply_acrylic;
 
 #[derive(Serialize, Deserialize)]
 struct Author {
@@ -51,14 +51,6 @@ fn main() {
         .plugin(tauri_plugin_window_state::Builder::default().build())
         .invoke_handler(tauri::generate_handler![fetch_quote])
         .setup(|app| {
-            let win = app
-                .get_webview_window("main")
-                .expect("`main` window not found");
-
-            #[cfg(target_os = "windows")]
-            apply_acrylic(&win, Some((18, 18, 18, 125)))
-                .expect("apply_acrylic only supported on Windows");
-
             let quit_i = MenuItem::with_id(app, "quit", "Quit", true, None::<&str>)?;
             let toggle_i =
                 MenuItem::with_id(app, "show_hide", "Show/Hide Widget", true, None::<&str>)?;
